@@ -4,7 +4,7 @@ This is your basic, every day validation class.
 
 ### Usage
 
-Instansiate the class. The rule() method takes three parameters; the value, the name (for error outputting) and the rules, respectively.
+Instantiate the class. The rule() method takes three parameters; the value, the name (for error outputting) and the rules, respectively.
 When you use the exec() mathod, it will return __FALSE__ if validated correctly. If not, it will return an array of the errors.
 
 If a field is empty, it will NOT be validated unless the *required* validation rule is set.
