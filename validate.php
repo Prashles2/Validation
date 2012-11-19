@@ -15,6 +15,7 @@ $val->rule($url, 'URL', 'required|url');
 $val->rule($ip, 'IP Address', 'required|ip');
 $val->rule($firstName, 'First name', 'required');
 $val->rule($lastName, 'Last name', 'min_length[4]');
+$val->rule('Hello', 'Test', 'match_exact[hEllO]');
 
 $exec = $val->exec();
 

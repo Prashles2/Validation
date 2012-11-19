@@ -60,12 +60,7 @@ Class Validate {
 
 	public function exec()
 	{
-		if (empty($this->_errors)) {
-			return false;
-		}
-		else {
-			return $this->_errors;
-		}
+		return (empty($this->_errors)) ? false : $this->_errors;
 	}
 
 	/*
@@ -90,10 +85,7 @@ Class Validate {
 
 	public function email($value) 
 	{
-		if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
-			return true;
-		}
-		return false;
+		return !filter_var($value, FILTER_VALIDATE_EMAIL);
 	}
 
 	public function required($value) 
@@ -106,62 +98,41 @@ Class Validate {
 
 	public function ip($value) 
 	{
-		if (!filter_var($value, FILTER_VALIDATE_IP)) {
-			return true;
-		}
-
-		return false;
+		return !filter_var($value, FILTER_VALIDATE_IP);
 	}
 
 	public function match($value, $param)
 	{
-		if ($value != $param) {
-			return true;
-		}
-		return false;
+		return ($value != $param);
 	}
 
 	public function match_exact($value, $param) 
 	{
-		if ($value !== $param) {
-			return true;
-		}
-		return false;
+		return ($value !== $param);
 	}
 
 	public function match_password($value, $param) 
 	{
-		if ($value !== $param) {
-			return true;
-		}
-		return false;
+		return ($value !== $param);
 	}
 
 	public function alphanum($value)
 	{
-		if (!ctype_alnum($value)){
-			return true;
-		}
-		return false;
+		return !ctype_alnum($value);
 	}
 
 	public function url($value)
 	{
-		if (!filter_var($value, FILTER_VALIDATE_URL)) {
-			return true;
-		}
-		return false;
+		return !filter_var($value, FILTER_VALIDATE_URL);
 	}
 
 	public function numeric($value)
 	{
-		if (!is_numeric($value)) {
-			return true;
-		}
-		return false;
+		return !(is_numeric($value));
 	}
 
-	public function min($value) {
+	public function min($value) 
+	{
 		if ($value < $param) {
 			return true;
 		}
