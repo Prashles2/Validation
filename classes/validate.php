@@ -69,18 +69,12 @@ Class Validate {
 
 	public function min_length($value, $param)
 	{
-		if (strlen($value) < $param) {
-			return true;
-		}
-		return false;
+		return (strlen($value) < $param);
 	}
 
 	public function max_length($value, $param) 
 	{
-		if (strlen($value) > $param) {
-			return true;
-		}
-		return false;
+		return (strlen($value) > $param);
 	}
 
 	public function email($value) 
