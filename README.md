@@ -54,11 +54,11 @@ __ip__ - Valid IP address
 __match[x]__ - Value should match x  
 __match_exact[x]__ - Value should match x exactly  
 __match_password[x]__ - Same as the above, but doesn't show x- good for password confirmation fields  
-__alphanum__ - String should be alphanumeric
-__numeric__ - Value should be numeric
-__min[x]__ - Value (number) should be at least x
-__max[x]__ - Value (number) should not be greater than x
-__url__ - Value should be a valid URL
+__alphanum__ - String should be alphanumeric  
+__numeric__ - Value should be numeric  
+__min[x]__ - Value (number) should be at least x  
+__max[x]__ - Value (number) should not be greater than x  
+__url__ - Value should be a valid URL  
 
 ### Extras
 
