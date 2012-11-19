@@ -50,8 +50,9 @@ You'll find sample usage in the validate.php file.
 __required__ - Value cannot be empty  
 __min_length[x]__ - Minimum length should be x or greater  
 __max_length[x]__ - Maximum length should be x or less  
-
+sd
 
 ### To-do
+
 
 Add error handling for validation rules that have parameters
