@@ -10,7 +10,7 @@ $ip        = '123123123';
 $firstName = ''; 
 $lastName  = '';
 
-$val->rule($email, 'Email', 'required|email');
+$val->rule($email, 'Email', 'email');
 $val->rule($url, 'URL', 'required|url');
 $val->rule($ip, 'IP Address', 'required|ip');
 $val->rule($firstName, 'First name', 'required');

@@ -84,10 +84,7 @@ Class Validate {
 
 	public function required($value) 
 	{
-		if (!strlen($value)) {
-			return true;
-		}
-		return false;
+		return (strlen($value) !== 0);
 	}
 
 	public function ip($value) 
@@ -127,17 +124,11 @@ Class Validate {
 
 	public function min($value) 
 	{
-		if ($value < $param) {
-			return true;
-		}
-		return false;
+		return ($value < $param);
 	}
 
 	public function max($value) {
-		if ($value > $param) {
-			return true;
-		}
-		return false;
+		return ($value > $param);
 	}
 
 }
