@@ -1,5 +1,9 @@
 <?php
 
+/*
+* Thanks to Jaime Bolzern for the translation
+*/
+
 $errorText = array(
 	'min_length'     => 'Le :name doit être au moins :param caractères',
 	'email'          => 'Le :name doit être une adresse email valable',
