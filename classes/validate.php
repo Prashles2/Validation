@@ -11,6 +11,8 @@ Class Validate {
 	{
 		$rules = explode('|', $rules);
 
+		$response = FALSE;
+
 		foreach ($rules as $rule) {
 
 			if (!strlen($value) && $rule != 'required') {
@@ -32,7 +34,7 @@ Class Validate {
 			if (!method_exists($validate, $rule)) {
 				throw new Exception("Method {$rule} not found");
 			}
-
+			
 			$response = call_user_func_array(array($validate, $rule), $call);	
 
 			if (!$response && !$static) {

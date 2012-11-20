@@ -5,10 +5,10 @@ require_once 'classes/validate.php';
 $val = new Validate;
 
 $invalidEmail  = 'foo';
-$shortPassword = '12345';
+$shortPassword = 'sdfsd';
 
 $val->rule($invalidEmail, 'Email', 'required|email'); // Will return false
-$val->rule($shortPassword, 'Password', 'required|min_length[35]');
+$val->rule($shortPassword, 'Password', 'min_length[10]|max_length[25]');
 
 $errors = $val->errors();
 if (!$errors) {
