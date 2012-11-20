@@ -4,6 +4,25 @@ require_once 'classes/validate.php';
 
 $val = new Validate;
 
+$invalidEmail  = 'foo';
+$shortPassword = '12345';
+
+$val->rule($invalidEmail, 'Email', 'required|email'); // Will return false
+$val->rule($shortPassword, 'Password', 'required|min_length[35]');
+
+$errors = $val->errors();
+if (!$errors) {
+	echo 'Success!';
+}
+else {
+	foreach ($errors as $error) {
+		echo "{$error}<br/>";
+	}
+}
+
+/*
+$val = new Validate;
+
 $email     = 'invalid@email';
 $url       = 'invalidUrlHere';
 $ip        = '123123123';

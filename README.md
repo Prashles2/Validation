@@ -4,8 +4,12 @@ This is your basic, every day validation class.
 
 ### Usage
 
-Instantiate the class. The rule() method takes three parameters; the value, the name (for error outputting) and the rules, respectively.
-When you use the exec() mathod, it will return __FALSE__ if validated correctly. If not, it will return an array of the errors.
+Instantiate the class. The rule() method takes three required parameters; the value, the name (for error outputting) and the rules, respectively. It will also take an optional fourth parameter; set this to true if you want to validate an input statically.  
+
+Each call to the rule() method will return true/false for a successful or failed validation, respectively. 
+Use the errors() method to get the errors for all the inputs. The method will return an array of error.
+
+The errors() method takes a parameter for your file with the errors in. By default, it's the english file that comes with the clsas.
 
 If a field is empty, it will NOT be validated unless the *required* validation rule is set.
 
@@ -30,7 +34,7 @@ __url__ - Value should be a valid URL
 
 ### Extras
 
-You can change the error messages in 'classes/errors.php'. Pretty self-explanatory.
+You can change the error messages in 'classes/validate/errors.english.php'. Pretty self-explanatory. You can also make your own file, just follow the format.
 
 ### To-do
 

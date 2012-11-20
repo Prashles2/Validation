@@ -19,7 +19,7 @@ Class Errors {
 
 			$replace = array(
 				':name' => $error['name'],
-				':param' => (empty($error['param'])) ? $error['param'] : NULL
+				':param' => (!empty($error['param'])) ? $error['param'] : NULL
 			);
 
 			$message = str_replace(array_keys($replace), array_values($replace), $errorMessage);

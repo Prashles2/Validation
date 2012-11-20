@@ -10,6 +10,7 @@ Class Validate {
 	public function rule($value, $name, $rules, $static = FALSE)
 	{
 		$rules = explode('|', $rules);
+
 		foreach ($rules as $rule) {
 
 			if (!strlen($value) && $rule != 'required') {
@@ -37,9 +38,10 @@ Class Validate {
 			if (!$response && !$static) {
 				$this->valErrors[] = array('rule' => $rule, 'name' => $name, 'param' => (isset($param)) ? $param : null);
 			}
-
-			return $response;
+			
 		}
+
+		return $response;
 	}
 
 	public function errors($errorFile = 'validate/errors.english.php')

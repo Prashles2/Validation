@@ -19,7 +19,7 @@ Class Rules {
 
 	public function required($value) 
 	{
-		return (strlen($value) === 0);
+		return (strlen($value) !== 0);
 	}
 
 	public function ip($value) 
