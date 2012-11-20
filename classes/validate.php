@@ -1,134 +1,60 @@
 <?php
 
+require_once dirname(__FILE__).'/validate/rules.php';
+require_once dirname(__FILE__).'/validate/errors.php';
+
 Class Validate {
 
-	private $_errors = array();
+	private $valErrors = array();
 
-	public function __construct()
+	public function rule($value, $name, $rules, $static = FALSE)
 	{
-		require_once 'errors.php';
-		$this->errorText = $errorText;
-	}
+		$rules = explode('|', $rules);
+		foreach ($rules as $rule) {
 
-	public function rule($value, $name, $inputRules)
-	{
-
-		$inputRules = explode('|', $inputRules);
-		foreach ($inputRules as $inputRule) {
-
-			if (!strlen($value) && $inputRule != 'required') {
+			if (!strlen($value) && $rule != 'required') {
 				break;
 			}
 
-			if (preg_match('/\[(.*?)\]/', $inputRule, $match)) {
+			if (preg_match('/\[(.*?)\]/', $rule, $match)) {
 
-				$rule = explode('[', $inputRule);
+				$rule = explode('[', $rule);
 				$rule = $rule[0];
 				$param = $match[1];
-				if (!method_exists($this, $rule)) {
-					throw new Exception("Method {$rule} does not exist");
-					exit;
-				}
-
 				$call = array($value, $param);
 			}
 			else {
-				if (!method_exists($this, $inputRule)) {
-					throw new Exception("Method {$inputRule} does not exist");
-					exit;
-				}
-				$rule = $inputRule;
 				$call = array($value);
 			}
 
-			$response = call_user_func_array(array($this, $rule), $call);
-
-			if ($response) {
-				$error = $this->errorText[$rule];
-				$replace = array(
-					':name' => $name,
-					':param' => (isset($param)) ? $param : NULL
-				);
-				$response = str_replace(array_keys($replace), array_values($replace), $error);
-
-				$this->_errors[] = $response;
+			$validate = new Rules;
+			if (!method_exists($validate, $rule)) {
+				throw new Exception("Method {$rule} not found");
 			}
 
+			$response = call_user_func_array(array($validate, $rule), $call);	
+
+			if (!$response && !$static) {
+				$this->valErrors[] = array('rule' => $rule, 'name' => $name, 'param' => (isset($param)) ? $param : null);
+			}
+
+			return $response;
+		}
+	}
+
+	public function errors($errorFile = 'validate/errors.english.php')
+	{
+
+		$errorFile = dirname(__FILE__)."/{$errorFile}";
+
+		if (empty($this->valErrors)) {
+			return false;
 		}
 
-	}
+		$errors = new Errors($errorFile);
 
-	public function exec()
-	{
-		return (empty($this->_errors)) ? false : $this->_errors;
-	}
+		return $errors->error($this->valErrors);
 
-	/*
-	* Rule functions
-	*/
-
-	public function min_length($value, $param)
-	{
-		return (strlen($value) < $param);
-	}
-
-	public function max_length($value, $param) 
-	{
-		return (strlen($value) > $param);
-	}
-
-	public function email($value) 
-	{
-		return !filter_var($value, FILTER_VALIDATE_EMAIL);
-	}
-
-	public function required($value) 
-	{
-		return (strlen($value) !== 0);
-	}
-
-	public function ip($value) 
-	{
-		return !filter_var($value, FILTER_VALIDATE_IP);
-	}
-
-	public function match($value, $param)
-	{
-		return ($value != $param);
-	}
-
-	public function match_exact($value, $param) 
-	{
-		return ($value !== $param);
-	}
-
-	public function match_password($value, $param) 
-	{
-		return ($value !== $param);
-	}
-
-	public function alphanum($value)
-	{
-		return !ctype_alnum($value);
-	}
-
-	public function url($value)
-	{
-		return !filter_var($value, FILTER_VALIDATE_URL);
-	}
-
-	public function numeric($value)
-	{
-		return !(is_numeric($value));
-	}
-
-	public function min($value) 
-	{
-		return ($value < $param);
-	}
-
-	public function max($value) {
-		return ($value > $param);
 	}
 
 }
