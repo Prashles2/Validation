@@ -1,8 +1,8 @@
-# Read Me 
+## Read Me 
 
 This is your basic, every day validation class.
 
-# Usage
+## Usage
 
 Instantiate the class. The rule() method takes three required parameters; the value, the name (for error outputting) and the rules, respectively. It will also take an optional fourth parameter; set this to true if you want to validate an input statically.  
 
@@ -17,7 +17,7 @@ You'll find sample usage in the validate.php file.
 
 
 
-# Validation Rules
+## Validation Rules
 
 __required__ - Value cannot be empty  
 __min_length[x]__ - Minimum length should be x or greater  
@@ -32,11 +32,12 @@ __min[x]__ - Value (number) should be at least x
 __max[x]__ - Value (number) should not be greater than x  
 __url__ - Value should be a valid URL  
 
-# Extras
+## Extras
 
 You can change the error messages in 'classes/validate/errors.english.php'. Pretty self-explanatory. You can also make your own file, just follow the format.
 
-# To-do
+  
+### To-do
 
 
 Add error handling for validation rules that have parameters  
