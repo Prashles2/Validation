@@ -5,10 +5,18 @@ Class Errors {
 	private $errors = array();
 	private $errorText;
 
+	/*
+	* Grabs the correct file containing the errors
+	*/
+	
 	public function __construct($errorFile)
 	{
 		$this->errorText = require $errorFile;
 	}
+	
+	/*
+	* Returns an array of errors after replacing any parameters 
+	*/
 
 	public function error(array $errors)
 	{

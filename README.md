@@ -13,7 +13,7 @@ The errors() method takes a parameter for your file with the errors in. By defau
 
 If a field is empty, it will NOT be validated unless the *required* validation rule is set.
 
-You'll find sample usage in the validate.php file.
+You'll find sample usage in the validate.php file. 
 
 
 
@@ -36,6 +36,7 @@ __url__ - Value should be a valid URL
 
 You can change the error messages in 'classes/validate/errors.english.php'. Pretty self-explanatory. You can also make your own file, just follow the format.
 
+If you call the __reset()__ method, the errors will be reset so you do not have in re-instantiate the class for validate another form.
   
 ### To-do
 

@@ -6,6 +6,12 @@ require_once dirname(__FILE__).'/validate/errors.php';
 Class Validate {
 
 	private $valErrors = array();
+	
+	/*
+	* Add a new rule to the validation
+	* If $static is set to TRUE, the rule will return a successful/failed validation
+	* However there will be no error message if the validation fails
+	*/
 
 	public function rule($value, $name, $rules, $static = FALSE)
 	{
@@ -45,6 +51,12 @@ Class Validate {
 
 		return $response;
 	}
+	
+	/*
+	* Returns the errors for all failed validations
+	*
+	* $errorFile is returns an array of error messages
+	*/
 
 	public function errors($errorFile = 'validate/errors.english.php')
 	{
@@ -60,5 +72,15 @@ Class Validate {
 		return $errors->error($this->valErrors);
 
 	}
+	
+	/*
+	* This method will reset the validation
+	* so you don't need to instantiate the class again
+	*/
+	
+	public function reset()
+	{
+		$this->valErrors = array();
+	} 
 
 }
