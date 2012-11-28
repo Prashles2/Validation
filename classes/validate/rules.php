@@ -2,6 +2,12 @@
 
 Class Rules {
 
+	/*
+	* Validation rules
+	*
+	* Each function should return TRUE if successfully validated
+	*/
+
 	public function min_length($value, $param)
 	{
 		return !(strlen($value) < $param);

@@ -7,8 +7,7 @@ Class Errors {
 
 	public function __construct($errorFile)
 	{
-		require $errorFile;
-		$this->errorText = $errorText;
+		$this->errorText = require $errorFile;
 	}
 
 	public function error(array $errors)

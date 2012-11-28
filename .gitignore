@@ -4,3 +4,5 @@
 *.sublime-project
 
 classes/validateOLD.php
+
+classes/validate/.DS_Store

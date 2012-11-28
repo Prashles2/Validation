@@ -1,10 +1,14 @@
 <?php
 
-$errorText = array(
+/*
+* Thanks to Jaime Bolzern for the translation
+*/
+
+return array(
 	'min_length'     => ':name muss mindestens :param Buchstaben lang sein',
 	'email'          => ':name muss eine gültige E-mail adresse sein',
 	'max_length'     => ':name muss kleiner als :param Buchstaben lang sein',
-	'Erforderlich'   => ':name es erforderlichist',
+	'required'       => ':name es erforderlichist',
 	'ip'             => ':name muss eine erforderliche IP Adresse sein',
 	'match'          => ':name es :param zusammenpassen muss',
 	'match_exact'    => ':name muss :param präziselich zusammenpassen',

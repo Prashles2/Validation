@@ -1,6 +1,10 @@
 <?php
 
-$errorText = array(
+/*
+*
+*/
+
+return array(
 	'min_length'     => ':name should be at least :param characters long',
 	'email'          => ':name should be a valid e-mail address',
 	'max_length'     => ':name should not be more than :param characters long',
