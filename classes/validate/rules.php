@@ -72,5 +72,16 @@ Class Rules {
 	{
 		return !($value > $param);
 	}
+	
+	public function match_regex($value, $param)
+	{
+		/*
+		* No error support for invalid regex
+		*
+		* $param is the regex pattern
+		*/
+		
+		return (preg_match($param, $value));
+	}
 
 }

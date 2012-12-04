@@ -17,5 +17,6 @@ return array(
 	'url'            => 'Le :name doit être une URL valable',
 	'numeric'      => 'Le :name doit être numerique',
 	'min'            => ':name doit être au moins :param',
-	'max'            => ':name doit être moins que :param'
+	'max'            => ':name doit être moins que :param',
+	'match_regex'    => ':name is invalid' # Not translated
 );

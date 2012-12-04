@@ -31,7 +31,8 @@ __numeric__ - Value should be numeric
 __min[x]__ - Value (number) should be at least x  
 __max[x]__ - Value (number) should not be greater than x  
 __url__ - Value should be a valid URL  
-
+__match_regex[x]__ - x should be a valid REGEX pattern the value will be validated against  
+  
 ## Extras
 
 You can change the error messages in 'classes/validate/errors.english.php'. Pretty self-explanatory. You can also make your own file, just follow the format.

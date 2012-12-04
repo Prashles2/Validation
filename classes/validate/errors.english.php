@@ -17,5 +17,6 @@ return array(
 	'url'            => ':name should be a valid URL',
 	'numeric'        => ':name should be numeric',
 	'min'            => ':name should be at least :param',
-	'max'            => ':name should not be greater than :param'
+	'max'            => ':name should not be greater than :param',
+	'match_regex'    => ':name is invalid'
 ); 

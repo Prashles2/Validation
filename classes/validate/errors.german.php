@@ -17,5 +17,6 @@ return array(
 	'url'            => ':name er muss eine erforderliche URL-Adresse sein',
 	'numeric'        => ':name er muss numerisch sein',
 	'min'            => ':name er muss mindestens :param sein',
-	'max'            => ':name es muss nicht mehr als :param sein'
+	'max'            => ':name es muss nicht mehr als :param sein',
+	'match_regex'    => ':name is invalid' # Not translated
 );

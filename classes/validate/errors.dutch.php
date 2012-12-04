@@ -17,5 +17,6 @@ $errorText = array(
     'url'            => ':name moet een geldige URL zijn',
     'numeric'        => ':name moet numeriek zijn',
     'min'            => ':name moet minimaal :param zijn',
-    'max'            => ':name mag maximaal :param zijn'
+    'max'            => ':name mag maximaal :param zijn',
+    'match_regex'    => ':name is invalid' # Not translated
 ); 
