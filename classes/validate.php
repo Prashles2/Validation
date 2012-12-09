@@ -1,10 +1,35 @@
 <?php
 
+/*
+*
+* PHP Validation Class
+* 
+* Supports multiple error files and include multilingual error messages
+*
+* http://prash.me
+* http://github.com/prashles
+*
+*
+* @author Prash Somaiya
+*
+*/
+
+
+/*
+* Require the rules and errors classes
+*/
+
 require_once dirname(__FILE__).'/validate/rules.php';
 require_once dirname(__FILE__).'/validate/errors.php';
 
 Class Validate {
 
+	/*
+	* array $valErrors
+	*
+	* Where all the validation errors are stored
+	*/
+	
 	private $valErrors = array();
 	
 	/*

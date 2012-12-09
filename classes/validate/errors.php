@@ -1,9 +1,37 @@
 <?php
 
-Class Errors {
+/*
+*
+* PHP Validation Class
+* 
+* Supports multiple error files and include multilingual error messages
+*
+* http://prash.me
+* http://github.com/prashles
+*
+*
+* @author Prash Somaiya
+*
+*/
 
-	private $errors = array();
-	private $errorText;
+
+Class Errors {
+	
+	/*
+	* array $errors
+	*
+	* All errors in plain-text are stored here
+	*/
+	
+	private $errors    = array();
+	
+	/*
+	* array $errorText
+	*
+	* Errors messages from the error files are save in here
+	*/
+	
+	private $errorText = array();
 
 	/*
 	* Grabs the correct file containing the errors
