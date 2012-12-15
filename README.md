@@ -9,6 +9,8 @@ Instantiate the class. The rule() method takes three required parameters; the va
 Each call to the rule() method will return true/false for a successful or failed validation, respectively. 
 Use the errors() method to get the errors for all the inputs. The method will return an array of error.
 
+You can use the ruleA() method to pass rules as an array.
+
 The errors() method takes a parameter for your file with the errors in. By default, it's the english file that comes with the class.
 
 If a field is empty, it will NOT be validated unless the *required* validation rule is set.

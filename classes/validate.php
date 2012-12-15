@@ -78,6 +78,45 @@ Class Validate {
 	}
 	
 	/*
+	* Same as rule() method but the rules are passed as array
+	* in the format $rule => $param
+	*
+	* Separate from rule() so it can be used separately for different validation fields 
+	* to switch between rule() and ruleA()
+	*/
+	
+	public function ruleA($value, $name, $rules = array(), $static = FALSE)
+	{
+
+		$response = FALSE;
+				
+		foreach ($rules as $rule => $param) {
+		
+			$rule = (is_int($rule)) ? $param : $rule;
+
+			if (!strlen($value) && $rule != 'required') {
+				break;
+			}
+			
+			$call = (!strlen($param)) ? array($value) : array($value, $param);
+
+			$validate = new Rules;
+			if (!method_exists($validate, $rule)) {
+				throw new Exception("Method {$rule} not found");
+			}
+			
+			$response = call_user_func_array(array($validate, $rule), $call);	
+
+			if (!$response && !$static) {
+				$this->valErrors[] = array('rule' => $rule, 'name' => $name, 'param' => (isset($param)) ? $param : null);
+			}
+			
+		}
+
+		return $response;
+	}
+	
+	/*
 	* Returns the errors for all failed validations
 	*
 	* $errorFile is returns an array of error messages
